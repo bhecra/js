@@ -7,17 +7,18 @@ getTeams(2015, 13);
 
 async function getTeams(year, k) {
   // write your code here
+
   let totalPages = 1;
   const API = `https://jsonmock.hackerrank.com/api/football_matches?competition=UEFA%20Champions%20League&year=${year}&page=${totalPages}`;
 
-  let totalData = [];
+  let allData = [];
 
-  const test = await GetAll(13, year);
-  console.log(test)
+  const allData = await GetAll(13, year);
+  console.log(allData)
 
-//   GET(API).then((firstData) => {
+  // const filterData = allData.filter(team => team.)
 
-//   });
+
 
   return [];
 }
@@ -28,14 +29,7 @@ async function GetAll(totalPages, year) {
   for (let i = 2; i <= totalPages; i++) {
     const newAPI = `https://jsonmock.hackerrank.com/api/football_matches?competition=UEFA%20Champions%20League&year=${year}&page=${i}`;
     const data = await GET(newAPI);
-
     allData.push(...data.data)
-    // GET(newAPI).then(team => {
-    //     allData = (team)
-    //     console.log(allData)
-    // }
-
-    // )
   }
 
   return allData;
