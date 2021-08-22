@@ -27,7 +27,7 @@ function addPermutation(list, value) {
 
 function gerPermutations(value) {
   let number = '0';
-  const numberBase = '0';
+  let numberBase = '0';
   if (typeof value === 'number') {
     number = value.toString();
     numberBase = value.toString();
@@ -80,15 +80,15 @@ function gerPermutations(value) {
 
 function main() {
   console.time('factorial');
-  console.log(gerPermutations(1234567891));
+  console.log(gerPermutations(12345678910));
   console.timeEnd('factorial');
   console.time('factorial');
-  console.log(gerPermutations(1234567891));
+  console.log(gerPermutations(12345678910));
   console.timeEnd('factorial');
   console.time('factorial');
-  console.log(gerPermutations(1234567891));
+  console.log(gerPermutations(12345678910));
   console.timeEnd('factorial');
   console.time('factorial');
-  console.log(gerPermutations(1234567891));
+  console.log(gerPermutations(12345678910));
   console.timeEnd('factorial');
 }
