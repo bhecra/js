@@ -19,18 +19,20 @@ function reverseString(str) {
   return [...str].reverse().join('');
 }
 
+function addPermutation(list, value) {
+  if (!list.includes(value)) {
+    list.push(value);
+  }
+}
+
 function gerPermutations(value) {
   let number = value.toString();
   const size = number.length;
   let permutations = [];
   const perm_number = factorial(size);
 
-  if (!permutations.includes(reverseString(number))) {
-    permutations.push(reverseString(number));
-  }
-  if (!permutations.includes(number)) {
-    permutations.push(number);
-  }
+  addPermutation(permutations, number);
+  addPermutation(permutations, reverseString(number));
 
   let current_position = size - 1;
   const reps = Math.floor(perm_number / 2 - 1);
@@ -40,19 +42,16 @@ function gerPermutations(value) {
       current_position = size - 1;
 
       let list_number = [...number];
-      const a = list_number[current_position];
 
-      list_number[current_position] = list_number[current_position - 1];
-      list_number[current_position - 1] = a;
+      [list_number[current_position], list_number[current_position - 1]] = [
+        list_number[current_position - 1],
+        list_number[current_position],
+      ];
 
       number = list_number.join('');
 
-      if (!permutations.includes(reverseString(number))) {
-        permutations.push(reverseString(number));
-      }
-      if (!permutations.includes(number)) {
-        permutations.push(number);
-      }
+      addPermutation(permutations, number);
+      addPermutation(permutations, reverseString(number));
     }
 
     current_position -= 1;
