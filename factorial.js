@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 main();
 
@@ -16,21 +16,11 @@ function factorial(n) {
 }
 
 function main() {
+  console.time('factorial');
+  console.log(factorial(20));
+  console.timeEnd('factorial');
 
-  console.time("factorial");
-  console.log(factorial(200));
-  console.timeEnd("factorial");
-
-
-  console.time("factorial");
-  console.log(factorial(200));
-  console.timeEnd("factorial");
-
-  console.time("factorial");
-  console.log(factorial(200));
-  console.timeEnd("factorial");
-
-  console.time("factorial");
-  console.log(factorial(200));
-  console.timeEnd("factorial");
+  console.time('factorial');
+  console.log(factorial(20));
+  console.timeEnd('factorial');
 }
